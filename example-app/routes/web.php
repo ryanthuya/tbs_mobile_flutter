@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+/* CRUD FLUTTER App via REST APIs - START */
+
+// Route::resource('students', StudentController::class);
+//Route::get('students',[StudentController::class,'index'])->name('show_all_customers');
+//Route::get('students',[StudentController::class,'index'])->name('show_all_customers');
+
+/* CRUD FLUTTER App via REST APIs - END */
