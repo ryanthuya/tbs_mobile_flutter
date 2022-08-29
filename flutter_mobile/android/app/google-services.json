@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:985454876855:android:aa42c2d0d6179f0c995532",
+        "mobilesdk_app_id": "1:985454876855:android:de848d235102c950995532",
         "android_client_info": {
-          "package_name": "com.example.test_tbs_mobile"
+          "package_name": "com.example.testing_with_rest_api"
         }
       },
       "oauth_client": [

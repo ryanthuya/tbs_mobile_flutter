@@ -40,17 +40,17 @@ class _AppFormState extends State<AppForm> {
           TextFormField(
             controller: widget.nameController,
             keyboardType: TextInputType.text,
-            decoration: InputDecoration(labelText: 'Name'),
+            decoration: const InputDecoration(labelText: 'Name'),
             //validator: _validateName, //  COMMENT
           ),
           TextFormField(
             controller: widget.ageController,
             keyboardType: TextInputType.number,
-            decoration: InputDecoration(labelText: 'Age'),
+            decoration: const InputDecoration(labelText: 'Age'),
             //validator: _validateAge,  //COMMNET
           ),
         ],
       ),
-    );;
+    );
   }
 }

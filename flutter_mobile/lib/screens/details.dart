@@ -18,7 +18,7 @@ class _DetailsState extends State<Details> {
   void deleteStudent(context) async {
     await http.delete(
       //Uri.parse(Env.URL_PREFIX+"delete"),
-      Uri.parse("${Env.URL_PREFIX}"+widget.student.id.toString()),
+      Uri.parse(Env.URL_PREFIX+widget.student.id.toString()),
       body: {
         'id': widget.student.id.toString(),
       },
@@ -33,19 +33,19 @@ class _DetailsState extends State<Details> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          content: Text('Are you sure you want to delete this?'),
+          content: const Text('Are you sure you want to delete this?'),
           actions: <Widget>[
             RaisedButton(
-              child: Icon(Icons.cancel),
               color: Colors.red,
               textColor: Colors.white,
               onPressed: () => Navigator.of(context).pop(),
+              child: const Icon(Icons.cancel),
             ),
             RaisedButton(
-              child: Icon(Icons.check_circle),
               color: Colors.blue,
               textColor: Colors.white,
               onPressed: () => deleteStudent(context),
+              child: const Icon(Icons.check_circle),
             ),
           ],
         );
@@ -57,10 +57,10 @@ class _DetailsState extends State<Details> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Details'),
+        title: const Text('Details'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.delete),
+            icon: const Icon(Icons.delete),
             onPressed: () => confirmDelete(context),
           ),
         ],
@@ -73,20 +73,20 @@ class _DetailsState extends State<Details> {
           children: <Widget>[
             Text(
               "Name : ${widget.student.name}",
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.all(10),
             ),
             Text(
               "Age : ${widget.student.age}",
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.edit),
+        child: const Icon(Icons.edit),
         onPressed: () => Navigator.of(context).push(
           MaterialPageRoute(
             builder: (BuildContext context) => Edit(student: widget.student),

@@ -8,7 +8,7 @@ import '../widgets/form.dart';
 class Edit extends StatefulWidget {
   final Student student;
 
-  Edit({required this.student});
+  const Edit({required this.student});
 
   @override
   _EditState createState() => _EditState();
@@ -26,7 +26,7 @@ class _EditState extends State<Edit> {
   Future editStudent() async {
     return await http.put(
       //"${Env.URL_PREFIX}/update.php",
-      Uri.parse("${Env.URL_PREFIX}"+widget.student.id.toString()),
+      Uri.parse(Env.URL_PREFIX+widget.student.id.toString()),
       body: {
         //"id": widget.student.id.toString(),
         "name": nameController.text,
@@ -52,24 +52,24 @@ class _EditState extends State<Edit> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Edit"),
+        title: const Text("Edit"),
       ),
       bottomNavigationBar: BottomAppBar(
         child: RaisedButton(
-          child: Text('CONFIRM'),
           color: Colors.blue,
           textColor: Colors.white,
           onPressed: () {
             _onConfirm(context);
           },
+          child: const Text('CONFIRM'),
         ),
       ),
       body: Container(
         height: double.infinity,
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Center(
           child: Padding(
-            padding: EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
             child: AppForm(
               formKey: formKey,
               nameController: nameController,

@@ -1,9 +1,9 @@
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
-import 'dart:ui';
 
 import '../env.sample.dart';
 import '../models/student.dart';
@@ -21,14 +21,17 @@ class HomeState extends State<Home> {
   late Future<List<Student>> students;
   final studentListKey = GlobalKey<HomeState>();
 
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
 
   @override
   void initState() {
     super.initState();
     students = getStudentList();
+    //Firebase Token
+    _firebaseMessaging.getToken().then((token) => print(token));
   }
   Future<List<Student>> getStudentList() async {
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 3));
     // Load Json Data
     final response = await http.get(Uri.parse(Env.URL_PREFIX));
 
@@ -45,14 +48,14 @@ class HomeState extends State<Home> {
     return Scaffold(
       key: studentListKey,
       appBar: AppBar(
-        title: Text('Students List'),
+        title: const Text('Students List'),
       ),
       body: Center(
         child: FutureBuilder<List<Student>>(
           future: students,
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             // By default, show a loading spinner.
-            if (!snapshot.hasData) return CircularProgressIndicator();
+            if (!snapshot.hasData) return const CircularProgressIndicator();
             // Render student lists
             return ListView.builder(
               itemCount: snapshot.data.length,
@@ -60,11 +63,11 @@ class HomeState extends State<Home> {
                 var data = snapshot.data[index];
                 return Card(
                   child: ListTile(
-                    leading: Icon(Icons.person),
-                    trailing: Icon(Icons.view_list),
+                    leading: const Icon(Icons.person),
+                    trailing: const Icon(Icons.view_list),
                     title: Text(
                       data.name,
-                      style: TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 20),
                     ),
                     onTap: () {
                       Navigator.push(
@@ -80,11 +83,11 @@ class HomeState extends State<Home> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
          onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Create()),
+            MaterialPageRoute(builder: (context) => const Create()),
           );
          },
       ),

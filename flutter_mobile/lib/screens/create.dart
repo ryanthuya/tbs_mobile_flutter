@@ -8,7 +8,7 @@ class Create extends StatefulWidget {
   //Function refreshStudentList;
   //const Create({required this.refreshStudentList});
 
-    Create({Key? key}) : super(key: key);
+    const Create({Key? key}) : super(key: key);
 
   @override
   _CreateState createState() => _CreateState();
@@ -18,8 +18,8 @@ class _CreateState extends State<Create> {
   final formKey = GlobalKey<FormState>();
 
   // Handles text onchange
-  TextEditingController nameController = new TextEditingController();
-  TextEditingController ageController = new TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController ageController = TextEditingController();
 
   // Http post request to create new data
   Future _createStudent() async {
@@ -45,11 +45,10 @@ class _CreateState extends State<Create> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Create"),
+        title: const Text("Create"),
       ),
       bottomNavigationBar: BottomAppBar(
         child: RaisedButton(
-          child: Text("CONFIRM"),
           color: Colors.blue,
           textColor: Colors.white,
           onPressed: () {
@@ -57,14 +56,15 @@ class _CreateState extends State<Create> {
               _onConfirm(context);
             }
           },
+          child: const Text("CONFIRM"),
         ),
       ),
       body: Container(
         height: double.infinity,
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Center(
           child: Padding(
-            padding: EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
             child: AppForm(
               formKey: formKey,
               nameController: nameController,
