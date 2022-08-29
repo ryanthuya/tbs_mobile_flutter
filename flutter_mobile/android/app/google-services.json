@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "985454876855",
+    "project_id": "flutter-sns-tbs",
+    "storage_bucket": "flutter-sns-tbs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985454876855:android:aa42c2d0d6179f0c995532",
+        "android_client_info": {
+          "package_name": "com.example.test_tbs_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985454876855-9tm26avd1i4lpg5b4clqu9ucs1af14be.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8dVeSDtJckvYIm1X0Ecjkme1gPQhlqPI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "985454876855-9tm26avd1i4lpg5b4clqu9ucs1af14be.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
