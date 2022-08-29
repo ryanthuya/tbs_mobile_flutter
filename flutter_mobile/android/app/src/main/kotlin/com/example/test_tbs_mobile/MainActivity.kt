@@ -1,4 +1,4 @@
-package com.example.testing_with_rest_api
+package com.example.test_tbs_mobile
 
 import io.flutter.embedding.android.FlutterActivity
 
